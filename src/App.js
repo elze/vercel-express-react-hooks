@@ -1,13 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-
-import Button from '@mui/material/Button';
 
 import React, {useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-// import PrimaryTerm from './PrimaryTerm'
-import Student from './Student'
+import PrimaryTerm from './PrimaryTerm'
+// import Student from './Student'
 
 function App() {
   //const count = useRenderTimes();
@@ -30,7 +27,7 @@ function App() {
         allStudentState?.students?.map((student, ind) => { 
 		  	  console.log(`ind = ${ind}`);
             return (
-			      <Student key={student.id} num={ind}>{student.name}</Student>
+			      <PrimaryTerm key={student.id} num={ind}/>
 			      )
           }
         )
