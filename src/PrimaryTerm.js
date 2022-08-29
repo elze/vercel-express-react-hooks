@@ -12,8 +12,8 @@ function PrimaryTerm({ num }) {
     const dispatch = useDispatch();
       //const allStudentState = useSelector((state) => state);
       const primaryTermState = useSelector((state) => {
-        console.log(`Student useSelector: state = ${JSON.stringify(state)}`)
-        return state.students?.[num];
+        // console.log(`PrimaryTerm useSelector: state = ${JSON.stringify(state)}`)
+        return state.primary_skills?.[num];
       }, shallowEqual 
       );
 
@@ -26,18 +26,19 @@ function PrimaryTerm({ num }) {
   
     return (
       <div className="App">
-    <Button variant="contained" sx={sxObj} key={primaryTermState?.id}
+    <Button variant="contained" sx={sxObj} key={primaryTermState?.primary_term}
     onClick={() => dispatch({type: 'toggleButton', index: num})}
     >
-            {primaryTermState?.name}
+            {primaryTermState?.primary_term}
+			
     </Button> 
     <Box sx={secondaryAreaObj}>
 	  { 
-		//console.log(`primarySkill.primary_term = ${primarySkill.primary_term} primarySkill.showCategories = ${primarySkill.showCategories}`);
-		primaryTermState.showCourses ? 
-		<span> {
-			primaryTermState.courses.map((course) => {							
-			  return <Button variant="outlined" key={course.id} sx={sxObj}>{course.name}</Button>
+		// console.log(`primaryTermState.primary_term = ${primaryTermState.primary_term} primaryTermState.showCourses = ${primaryTermState.showCourses}`);
+		primaryTermState?.showCategories ? 
+		<span> {			
+			primaryTermState?.categories?.map((category) => {							
+			  return <Button variant="outlined" key={category.categoryName} sx={sxObj}>{category.categoryName}</Button>
 			}
 			)
 		}

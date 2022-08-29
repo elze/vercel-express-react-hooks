@@ -5,10 +5,12 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
-import { reducer } from './reducers';
+// import { reducer } from './reducers';
+import { skillsReducer } from './skillsReducers';
 import { createStore } from 'redux';
 
-const store = createStore(reducer);
+// const store = createStore(reducer);
+const store = createStore(skillsReducer);
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

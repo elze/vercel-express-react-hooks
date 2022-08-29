@@ -1,40 +1,23 @@
 import './App.css';
 
-import React, {useEffect} from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import Skills from './Skills'
+import Students from './Students'
 
-import PrimaryTerm from './PrimaryTerm'
-// import Student from './Student'
 
 function App() {
-  //const count = useRenderTimes();
-  const dispatch = useDispatch();
-	const allStudentState = useSelector((state) => state);
-
-	useEffect(() => {   
-		console.log(`App: useEffect: about to dispatch getStudents`);
-		dispatch({type: 'getStudents'});
-
-		return () => {
-			console.log('App component is being destroyed');
-		};
-
-	}, [dispatch]); 	
-
   return (
       <div className="App">
-      {
-        allStudentState?.students?.map((student, ind) => { 
-		  	  console.log(`ind = ${ind}`);
-            return (
-			      <PrimaryTerm key={student.id} num={ind}/>
-			      )
-          }
-        )
-      } 
+        <header className="my-app">
+          <h1 className="Skills-title">Application with Express.js and React.js, running on Vercel</h1>
+		  It was created for Women Who Code Austin, TX frontend meetup to investigate useSelector hook and re-renderings. Here is the Github repository: <a href="https://github.com/elze/vercel-express-react-demo-theming">https://github.com/elze/vercel-express-react-demo-theming</a>.<br/> 
+		  Here is the <a href="http://geekitude.com">author's website</a>.<br/>
+		  Here is my presentation explaining <a href="http://geekitude.com/Presentations/20211205-Vercel-Express-React/20211208-Vercel.html">how to run full-stack applications on Vercel</a>.<br/>
+		  Here is my presentation on <a href="http://geekitude.com/Presentations/20220405-RevealMD-ReactMUITheming/slides.html">Theming in React.js using MUI (Material UI)</a>.<br/>		  
+		  (The data in this application does not make much sense -- I borrowed it from another of my projects, which is still very much a work in progress.)<br/>  		  
+        </header>	  
+		<Skills/>
       </div>
-  );
+  );  
 }
-
 
 export default App;
