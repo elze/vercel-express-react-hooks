@@ -316,22 +316,10 @@ export function reducer(state={}, action) {
       case 'getStudents':
         console.log(`reducer, case getStudents: originalState.students.length = ${originalState.students.length} `);
         return originalState;   
-		// return originalPSState;
-		/*
-      case 'stateFromBackend':
-		let stFromBackend = Object.assign({}, action.allSkills);
-		//console.log(`reducer case STATE_FROM_BACKEND: stFromBackend = ${JSON.stringify(stFromBackend)}`);
-		console.log(`reducer case STATE_FROM_BACKEND: we are here`);
-			
-		return stFromBackend;
-		*/
       case 'toggleButton': 
        let newStudents = state.students.slice();
-	   // let newPrimarySkills = state.primary_skills.slice();
        newStudents[action.index].showCourses = !state.students[action.index].showCourses;
-	   // newPrimarySkills[action.index].showCategories = !state.primary_skills[action.index].showCategories;
        let newState = {students: newStudents}
-	   // let newState = {primary_skills: newPrimarySkills}
        return newState;    
       default:
 	      return state;
