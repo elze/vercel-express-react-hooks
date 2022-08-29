@@ -10,9 +10,7 @@ import Button from '@mui/material/Button';
 function PrimaryTerm({ num }) {
     const count = useRenderTimes();
     const dispatch = useDispatch();
-      //const allStudentState = useSelector((state) => state);
       const primaryTermState = useSelector((state) => {
-        // console.log(`PrimaryTerm useSelector: state = ${JSON.stringify(state)}`)
         return state.primary_skills?.[num];
       }, shallowEqual 
       );
@@ -34,7 +32,6 @@ function PrimaryTerm({ num }) {
     </Button> 
     <Box sx={secondaryAreaObj}>
 	  { 
-		// console.log(`primaryTermState.primary_term = ${primaryTermState.primary_term} primaryTermState.showCourses = ${primaryTermState.showCourses}`);
 		primaryTermState?.showCategories ? 
 		<span> {			
 			primaryTermState?.categories?.map((category) => {							
