@@ -15,12 +15,33 @@ function PrimaryTerm({ num }) {
       }, shallowEqual 
       );
 
+		/*
       let sxObj = {m: 1, textTransform: 'none'};  
       const secondaryAreaObj = {
         backgroundColor: '#F5F5F5',
         width: 3/4,
         m: 'auto'
       }      
+	  */
+	  
+	let sxObj = {m: 1};
+	let id = `id-${num}`;
+	const secondaryAreaObj = {
+		backgroundColor: 'secondaryArea.main',
+		width: 3/4,
+		m: 'auto'
+	}		
+
+	if (primaryTermState) {
+	//const id = primarySkill.primary_term.split(' ').join('-');
+	id = id + '-' + primaryTermState.primary_term.split(' ').join('-');
+	sxObj = {m: 1,
+			...(primaryTermState.showCategories) && {bgcolor: 'highlighted.main', color: 'highlighted.contrastText'},
+			...(!primaryTermState.showCategories && primaryTermState.categories.length > 9) 
+				&& {bgcolor: 'hasManyAssociations.main', border: 1, color: 'hasManyAssociations.contrastText'}
+	};
+	}
+	
   
     return (
       <div className="App">
