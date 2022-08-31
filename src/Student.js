@@ -1,6 +1,6 @@
 import './App.css';
 
-import React, {useEffect} from 'react';
+import React from 'react';
 import { Box } from '@mui/system';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { useRenderTimes } from './Utils';

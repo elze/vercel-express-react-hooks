@@ -5,7 +5,7 @@ app.use(bodyParser.json());
 const https = require('https');
 const http = require('http');
 var termsData = require('./termsSelectData.js')
-//var termsData = require('./termsData.js')
+// var termsData = require('./termsData.js')
 
 var students =
 	[
