@@ -7,6 +7,8 @@ import { useRenderTimes } from './Utils';
 
 import Button from '@mui/material/Button';
 
+import { SkillCategory } from './SkillCategory';
+
 function PrimaryTerm({ num }) {
     const count = useRenderTimes();
     const dispatch = useDispatch();
@@ -33,18 +35,18 @@ function PrimaryTerm({ num }) {
 	}		
 
 	if (primaryTermState) {
-	//const id = primarySkill.primary_term.split(' ').join('-');
-	id = id + '-' + primaryTermState.primary_term.split(' ').join('-');
-	sxObj = {m: 1,
-			...(primaryTermState.showCategories) && {bgcolor: 'highlighted.main', color: 'highlighted.contrastText'},
-			...(!primaryTermState.showCategories && primaryTermState.categories.length > 9) 
-				&& {bgcolor: 'hasManyAssociations.main', border: 1, color: 'hasManyAssociations.contrastText'}
-	};
+		//const id = primarySkill.primary_term.split(' ').join('-');
+		id = id + '-' + primaryTermState.primary_term.split(' ').join('-');
+		sxObj = {m: 1,
+				...(primaryTermState.showCategories) && {bgcolor: 'highlighted.main', color: 'highlighted.contrastText'},
+				...(!primaryTermState.showCategories && primaryTermState.categories.length > 9) 
+					&& {bgcolor: 'hasManyAssociations.main', border: 1, color: 'hasManyAssociations.contrastText'}
+		};
 	}
 	
   
     return (
-      <div className="App">
+      <div className="App">	  
     <Button variant="contained" sx={sxObj} key={primaryTermState?.primary_term}
     onClick={() => dispatch({type: 'toggleButton', index: num})}
     >
@@ -55,8 +57,9 @@ function PrimaryTerm({ num }) {
 	  { 
 		primaryTermState?.showCategories ? 
 		<span> {			
-			primaryTermState?.categories?.map((category) => {							
-			  return <Button variant="outlined" key={category.categoryName} sx={sxObj}>{category.categoryName}</Button>
+			primaryTermState?.categories?.map((category) => {						
+				return <SkillCategory key={category.categoryName} sx={sxObj} primarySkill={primaryTermState} category={category} />			
+			  // return <Button variant="outlined" key={category.categoryName} sx={sxObj}>{category.categoryName}</Button>
 			}
 			)
 		}

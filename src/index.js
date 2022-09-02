@@ -10,7 +10,7 @@ import { createStore } from 'redux';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import deepOrange from '@material-ui/core/colors/deepOrange';
-import indigo from '@material-ui/core/colors/indigo';
+import lime from '@material-ui/core/colors/lime';
 import teal from '@material-ui/core/colors/teal';
 
 import { skillsReducer } from './skillsReducers';
@@ -42,7 +42,7 @@ const tealOrangeTheme = createTheme({
 		contrastText: teal[50],
 	},
 	secondaryArea: {
-		main: indigo[50]
+		main: lime[50]
 	}
   },
   spacing: 8,  
