@@ -58,8 +58,7 @@ function PrimaryTerm({ num }) {
 		primaryTermState?.showCategories ? 
 		<span> {			
 			primaryTermState?.categories?.map((category) => {						
-				return <SkillCategory key={category.categoryName} sx={sxObj} primarySkill={primaryTermState} category={category} />			
-			  // return <Button variant="outlined" key={category.categoryName} sx={sxObj}>{category.categoryName}</Button>
+				return <SkillCategory key={category.categoryName} sx={sxObj} category={category} />			
 			}
 			)
 		}

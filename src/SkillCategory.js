@@ -44,7 +44,7 @@ const useStyles = makeStyles({
 	}
 });
 
-export function SkillCategory({ primarySkill, category }) {	
+export function SkillCategory({ category }) {	
 	const classes = useStyles();
 	return (
 	<Button variant="contained" 
