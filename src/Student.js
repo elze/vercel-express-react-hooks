@@ -25,7 +25,7 @@ function Student({ num }) {
       }      
   
     return (
-      <div className="App">
+      <div>
     <Button variant="contained" sx={sxObj} key={studentState?.id}
     onClick={() => dispatch({type: 'toggleButton', index: num})}
     >
@@ -37,7 +37,7 @@ function Student({ num }) {
 		studentState.showCourses ? 
 		<span> {
 			studentState.courses.map((course) => {							
-			  return <Button variant="outlined" key={course.id} sx={sxObj}>{course.name}</Button>
+			  return <Button variant="contained" key={course.id} sx={sxObj}>{course.name}</Button>
 			}
 			)
 		}

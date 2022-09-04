@@ -3,12 +3,17 @@ import App from './App';
 import { Provider } from 'react-redux';
 import { unmountComponentAtNode } from "react-dom";
 import { act } from "react-dom/test-utils";
+import {prettyDOM} from '@testing-library/dom'
 
+import { reducer } from './reducers';
 import { SkillCategory } from './SkillCategory';
 import { skillsReducer } from './skillsReducers';
 
+import Student from './Student'
+
 import { createStore } from 'redux';
-const store = createStore(skillsReducer);
+// const store = createStore(skillsReducer);
+const store = createStore(reducer);
 
 let container = null;
 beforeEach(() => {
@@ -30,23 +35,29 @@ test('renders running on Vercel link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-it("renders with or without a name", () => {
+
+it("renders SkillCategory", () => {
 	const catName = 'distributed streaming systems';
-	const myCategory = 	{
+	const myCat = 	{
 		categoryName: catName 
 	};
 	
   act(() => {
-    render(<SkillCategory category={myCategory} />, container);	
+    render(<SkillCategory category={myCat} />, container);	
   });
-  const myCategoryName = screen.getByText(catName);
+  const myCategory = screen.getByText(catName);
   // expect(container.textContent).toBe("Hello, Jenny!");
-  expect(myCategoryName).toBeTruthy();
+  expect(myCategory).toBeTruthy();
+  console.log(prettyDOM(myCategory))
+});
 
-/*
+it("renders Student", () => {
   act(() => {
-    render(<Hello name="Margaret" />, container);
+    render(<Provider store={store}><Student num="2" /></Provider>, container);	
   });
-  expect(container.textContent).toBe("Hello, Margaret!");
-  */
+  const myStudent = screen.getByText("Foo3 Bar3");
+  // expect(container.textContent).toBe("Hello, Jenny!");
+  expect(myStudent).toBeTruthy();
+  // const myCN = getByText(container, catName);
+  console.log(prettyDOM(myStudent))
 });

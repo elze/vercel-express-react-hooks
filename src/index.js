@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 
-// import { reducer } from './reducers';
+import { reducer } from './reducers';
 import { createStore } from 'redux';
 
 import { ThemeProvider, createTheme } from '@mui/material/styles';

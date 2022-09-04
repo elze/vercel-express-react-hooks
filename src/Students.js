@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import Student from './Student'
 
-function App() {
+function Students() {
   //const count = useRenderTimes();
   const dispatch = useDispatch();
 	const allStudentState = useSelector((state) => state);
@@ -36,4 +36,4 @@ function App() {
 }
 
 
-export default App;
+export default Students;
